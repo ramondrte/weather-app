@@ -35,6 +35,7 @@ search.addEventListener('click', () => {
             const wind = document.querySelector('.weather-details .wind span');
 
            console.log(json.weather[0].main); // Para ver qual valor a API retorna
+            console.log(json.weather[0].description);
 
             switch (json.weather[0].main) {
                 case 'Clear':
