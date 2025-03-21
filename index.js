@@ -34,12 +34,15 @@ search.addEventListener('click', () => {
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
 
+           console.log(json.weather[0].main); // Para ver qual valor a API retorna
+
             switch (json.weather[0].main) {
                 case 'Clear':
                     image.src = 'clear.png';
                     break;
 
                 case 'Rain':
+                case 'Drizzle':
                     image.src = 'rain.png';
                     break;
 
@@ -52,11 +55,17 @@ search.addEventListener('click', () => {
                     break;
 
                 case 'Haze':
+                case 'Mist':
+                case 'Fog':
                     image.src = 'mist.png';
                     break;
 
+                case 'Thunderstorm':
+                    image.src = 'storm.png';
+                    break;
+
                 default:
-                    image.src = '';
+                    image.src = 'default.png'; // Imagem genérica para valores inesperados
             }
 
             temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`;
